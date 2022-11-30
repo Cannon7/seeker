@@ -1,34 +1,21 @@
-﻿using System;
-namespace Seeker;
+﻿using Unit03.Game;
+
+
+namespace Unit03
+{
+    /// <summary>
+    /// The program's entry point.
+    /// </summary>
     class Program
     {
+        /// <summary>
+        /// Starts the program using the given arguments.
+        /// </summary>
+        /// <param name="args">The given arguments.</param>
         static void Main(string[] args)
         {
-            Random rnd = new Random();
-            int Sollution = rnd.Next(1000);
-            string Game = "go";
-            int Best = 1001;
-            while (Game == "go")
-            {
-                Console.WriteLine("Enter a location 1-1000");
-                int Guess = Convert.ToInt32(Console.ReadLine());
-                int Value = Math.Abs(Sollution - Guess);
-                if (Value <= Best)
-                {
-                    Console.WriteLine("Getting Warmer!");
-                    Console.WriteLine(" ");
-                    Best = Value;
-                }
-                if (Value > Best)
-                {
-                    Console.WriteLine("Getting Colder!");
-                    Console.WriteLine(" ");
-                }
-                if (Guess == Sollution)
-                {
-                    Console.WriteLine("You Found Me!");
-                    Game = "no";
-                }
-            }
+            Director director = new Director();
+            director.StartGame();
         }
     }
+}
