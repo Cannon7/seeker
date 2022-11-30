@@ -1,11 +1,6 @@
-namespace Unit03.Game
+namespace Seeker.Game
 {
-    /// <summary>
-    /// <para>A person who directs the game.</para>
-    /// <para>
-    /// The responsibility of a Director is to control the sequence of play.
-    /// </para>
-    /// </summary>
+
     public class Director
     {
         private Hider _hider = new Hider();
@@ -13,29 +8,23 @@ namespace Unit03.Game
         private Seeker _seeker = new Seeker();
         private TerminalService _terminalService = new TerminalService();
 
-        /// <summary>
-        /// Constructs a new instance of Director.
-        /// </summary>
+
         public Director()
         {
         }
 
-        /// <summary>
-        /// Starts the game by running the main game loop.
-        /// </summary>
         public void StartGame()
         {
             while (_isPlaying)
             {
+                //GAMEPLAY LOOP AND UPDATES
                 GetInputs();
                 DoUpdates();
                 DoOutputs();
             }
         }
 
-        /// <summary>
-        /// Moves the seeker to a new location.
-        /// </summary>
+        //LOCATION INPUT
         private void GetInputs()
         {
             _terminalService.WriteText(_hider._location.ToString());
@@ -43,17 +32,13 @@ namespace Unit03.Game
             _seeker.MoveLocation(location);
         }
 
-        /// <summary>
-        /// Keeps watch on where the seeker is moving.
-        /// </summary>
+        //TRACK SEEKER
         private void DoUpdates()
         {
             _hider.WatchSeeker(_seeker);
         }
 
-        /// <summary>
-        /// Provides a hint for the seeker to use.
-        /// </summary>
+        //HINTS FOR THE WEAK
         private void DoOutputs()
         {
             string hint = _hider.GetHint();

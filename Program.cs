@@ -1,17 +1,11 @@
-﻿using Unit03.Game;
+﻿using Seeker.Game;
 
 
-namespace Unit03
+namespace Seeker
 {
-    /// <summary>
-    /// The program's entry point.
-    /// </summary>
+    //START
     class Program
     {
-        /// <summary>
-        /// Starts the program using the given arguments.
-        /// </summary>
-        /// <param name="args">The given arguments.</param>
         static void Main(string[] args)
         {
             Director director = new Director();
